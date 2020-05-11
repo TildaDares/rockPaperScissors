@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+computerPlay = () => {
+    const arrRockOptions = ['rock', 'paper', 'scissors'];
+    let randomOption = Math.floor(Math.random() * 3);
+    return arrRockOptions[randomOption];
+}
+
+playRound = (playerSelection, computerSelection) => {
+   
+     if(playerSelection == 'rock' && computerSelection == 'scissors'){
+          countWinsPlayer++;
+          console.log("You win! Rock beats Scissors");
+        return "You win! Rock beats Scissors";
+    }
+    else if(playerSelection == 'paper' && computerSelection == 'rock'){
+          countWinsPlayer++;
+          console.log("You win! Paper beats Rock");
+        return "You win! Paper beats Rock";
+    }
+    else if(playerSelection == 'scissors' && computerSelection == 'paper'){
+        countWinsPlayer++;
+        console.log("You win! Scissors beats Paper");
+        return "You win! Scissors beats Paper";
+    }
+    else if(playerSelection == 'paper' && computerSelection == 'scissors'){
+         countWinsComputer++;
+         console.log("You Lose! Scissors beats Paper");
+         return "You Lose! Scissors beats Paper";
+    }
+    else if(playerSelection == 'rock' && computerSelection == 'paper'){
+        countWinsComputer++;
+        console.log("You Lose! Paper beats Rock");
+        return "You Lose! Paper beats Rock";
+    }
+    else if(playerSelection == 'scissors' && computerSelection == 'rock'){
+         countWinsComputer++;
+         console.log("You Lose! Rock beats Scissors");
+        return "You Lose! Rock beats Scissors";
+    }
+    else{
+        console.log("It's a tie");
+return "It's a tie";
+    }
+   
+}
+
+game = () =>{
+   
+    for(let i = 0; i < 5; i++){
+         let computerSelection = computerPlay();
+        let playerSelection = prompt("Enter your game input");
+        playerSelection = playerSelection.toLowerCase();
+         if(playerSelection == 'rock' || playerSelection == 'paper'|| playerSelection == 'scissors'){
+        playRound(playerSelection, computerSelection);
+         }
+         else{
+         while(!(playerSelection == 'rock' || playerSelection == 'paper'|| playerSelection == 'scissors')){
+        playerSelection = prompt("Please enter a valid input");
+        if(playerSelection == 'rock' || playerSelection == 'paper'|| playerSelection == 'scissors'){
+            playRound(playerSelection, computerSelection);
+        }
+         }
+         }
+    }
+    if(countWinsComputer > countWinsPlayer){console.log("Computer Wins by " + countWinsComputer + " points");}
+    else if(countWinsComputer < countWinsPlayer){console.log("Player Wins by " + countWinsPlayer + " points");}
+    else{console.log("It's a tie");}
+}
+let countWinsPlayer = 0;
+let countWinsComputer = 0;
+console.log(game());
+</script>
+</body>
+</html>
