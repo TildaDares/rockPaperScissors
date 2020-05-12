@@ -60,8 +60,6 @@
                             countWinsComputer++;
                         } else if (roundResults === "playerWins") {
                             countWinsPlayer++;
-                        } else {
-                            //do nothing
                         }
                     } else { //What happens when the user input is invalid
                         while (!(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors')) {
@@ -81,7 +79,7 @@
                 }
             }
 
-            console.log(game());
+            game();
         </script>
     </body>
 </html>
