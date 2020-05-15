@@ -203,7 +203,7 @@ header a:hover {
     }
     .player-game {
         width: 180px;
-        height: 220px;
+        height: 180px;
     }
     .player-dash p,
     .comp-dash p {
@@ -211,7 +211,7 @@ header a:hover {
     }
     #comp-game {
         width: 200px;
-        height: 220px;
+        height: 180px;
     }
     #restart {
         width: 130px;
