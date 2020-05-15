@@ -4,84 +4,36 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="main.css" type="text/css">
         <title>Document</title>
     </head>
     <body>
-        <script>
-            //Generates random strings 
-            computerPlay = () => {
-                const arrRockOptions = ['rock', 'paper', 'scissors'];
-                let randomOption = Math.floor(Math.random() * arrRockOptions.length);
-                return arrRockOptions[randomOption];
-            }
-
-            //Compares the player's input with the computer's and determines who wins the round
-            playRound = (playerSelection, computerSelection) => {
-
-                if (playerSelection === 'rock' && computerSelection === 'scissors') {
-                    console.log("You win! Rock beats Scissors");
-                    return "playerWins";
-                } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-                    console.log("You win! Paper beats Rock");
-                    return "playerWins";
-                } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-                    console.log("You win! Scissors beats Paper");
-                    return "playerWins";
-                } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-                    console.log("You Lose! Scissors beats Paper");
-                    return "playerLoses";
-                } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-                    console.log("You Lose! Paper beats Rock");
-                    return "playerLoses";
-                } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-                    console.log("You Lose! Rock beats Scissors");
-                    return "playerLoses";
-                } else {
-                    console.log("It's a tie");
-                    return "Tie";
-                }
-
-            }
-
-            game = () => {
-                let countWinsPlayer = 0; //Number of player wins
-                let countWinsComputer = 0; //Number of computer wins
-                for (let i = 0; i < 5; i++) { //Plays Five rounds
-                    let computerSelection = computerPlay();
-                    let playerSelection = prompt("Enter your game input");
-                    if (playerSelection == null) {
-                        alert("Chicken! Chicken!");
-                        return;
-                    }
-                    playerSelection = playerSelection.toLowerCase();
-                    if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') { //Checks if user input is the correct one
-                        let roundResults = playRound(playerSelection, computerSelection);
-                        if (roundResults === "playerLoses") {
-                            countWinsComputer++;
-                        } else if (roundResults === "playerWins") {
-                            countWinsPlayer++;
-                        } else {
-                            //do nothing
-                        }
-                    } else { //What happens when the user input is invalid
-                        while (!(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors')) {
-                            playerSelection = prompt("Please enter a valid input");
-                            if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
-                                playRound(playerSelection, computerSelection);
-                            }
-                        }
-                    }
-                }
-                if (countWinsComputer > countWinsPlayer) {
-                    console.log(`Computer Wins by ${countWinsComputer} points`);
-                } else if (countWinsComputer < countWinsPlayer) {
-                    console.log(`Player Wins by ${countWinsPlayer} points`);
-                } else {
-                    console.log("It's a tie");
-                }
-            }
-
-            console.log(game());
-        </script>
+        <header>
+            <img src="Images/rps.png" alt="rock paper scissors" id="rps">
+            <a href="howtoplay.html">How to Play</a>
+        </header>
+        <main>
+            <button type="button" id="restart">Restart</button>
+            <div class="score-div">
+                <p class="score">Score:</p>
+                <p class="scores">Computer: 0</p>
+                <p class="scores">Player: 0</p>
+            </div>
+            <div class="comp-dash">
+                <p>Computer</p>
+                <img src="Images/threehands2.jpeg" alt="three hands" id="comp-game">
+            </div>
+            <h2 id="game-status">Let's Play!</h2>
+            <div class="player-dash">
+                <p>Player</p>
+                <div class="player-btn">
+                    <button id="rock" class="player-game"></button>
+                    <button id="paper" class="player-game"></button>
+                    <button id="scissors" class="player-game"></button>
+                </div>
+            </div>
+        </main>
+        <script src="script.js"></script>
     </body>
 </html>
+

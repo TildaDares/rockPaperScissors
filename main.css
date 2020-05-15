@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#rps {
+    width: 150px;
+    height: 100px;
+    margin-left: 3px;
+    margin-bottom: 20px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header a {
+    margin-top: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover {
+    font-size: 1.1rem;
+    text-decoration: underline;
+}
+
+#restart {
+    float: right;
+    width: 100px;
+    height: 30px;
+    font-size: 1.2rem;
+    background: black;
+    color: white;
+    border: 1px hidden black;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.score-div {
+    margin-left: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    width: 150px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.score {
+    text-align: center;
+    position: relative;
+    bottom: 30px;
+    font-size: 1.3rem;
+}
+
+.scores {
+    padding-left: 20px;
+    line-height: 1.5;
+}
+
+#comp-game {
+    width: 120px;
+    height: 120px;
+}
+
+.comp-dash p {
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+}
+
+.comp-dash {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#game-status {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.player-dash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.player-dash p {
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.player-btn {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    column-gap: 30px;
+    height: 120px;
+}
+
+.player-game {
+    width: 100px;
+    height: 100px;
+    border: 1px hidden black;
+}
+
+#rock {
+    background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0)), url('Images/rock.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#paper {
+    background: url('Images/paper.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#scissors {
+    background: url('Images/scissors.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#howtoplay {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+#howtoplaylink {
+    display: block;
+    width: 150px;
+    height: 30px;
+    font-size: 1.2rem;
+    background: black;
+    color: white;
+    border: 1px hidden black;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.reason {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.par {
+    line-height: 1.8;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.howtowin li {
+    padding-left: 35px;
+    line-height: 1.9;
+}
+
+.howtowin {
+    padding-top: 20px;
+}
+
+.backtohome {
+    text-decoration: none;
+    color: white;
+    background: black;
+    border: 1px hidden black;
+    width: 150px;
+    height: 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+@media(min-width: 768px) {
+    .player-btn {
+        column-gap: 30px;
+        height: 120px;
+        margin-top: 60px;
+    }
+    .player-game {
+        width: 180px;
+        height: 220px;
+    }
+    .player-dash p,
+    .comp-dash p {
+        font-size: 1.9rem;
+    }
+    #comp-game {
+        width: 200px;
+        height: 220px;
+    }
+    #restart {
+        width: 130px;
+        height: 30px;
+        font-size: 1.3rem;
+        margin-right: 20px;
+    }
+}
+
+@media(min-width: 1000px) {
+    .player-btn {
+        column-gap: 100px;
+    }
+    #rps {
+        width: 200px;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+}
