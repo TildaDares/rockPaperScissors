@@ -8,6 +8,7 @@
         <title>Document</title>
     </head>
     <body>
+<<<<<<< HEAD
         <header>
             <img src="Images/rps.png" alt="rock paper scissors" id="rps">
             <a href="howtoplay.html">How to Play</a>
@@ -34,6 +35,82 @@
             </div>
         </main>
         <script src="script.js"></script>
+=======
+        <script>
+            //Generates random strings 
+            computerPlay = () => {
+                const arrRockOptions = ['rock', 'paper', 'scissors'];
+                let randomOption = Math.floor(Math.random() * arrRockOptions.length);
+                return arrRockOptions[randomOption];
+            }
+
+            //Compares the player's input with the computer's and determines who wins the round
+            playRound = (playerSelection, computerSelection) => {
+
+                if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                    console.log("You win! Rock beats Scissors");
+                    return "playerWins";
+                } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+                    console.log("You win! Paper beats Rock");
+                    return "playerWins";
+                } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+                    console.log("You win! Scissors beats Paper");
+                    return "playerWins";
+                } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+                    console.log("You Lose! Scissors beats Paper");
+                    return "playerLoses";
+                } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+                    console.log("You Lose! Paper beats Rock");
+                    return "playerLoses";
+                } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+                    console.log("You Lose! Rock beats Scissors");
+                    return "playerLoses";
+                } else {
+                    console.log("It's a tie");
+                    return "Tie";
+                }
+
+            }
+
+            game = () => {
+                let countWinsPlayer = 0; //Number of player wins
+                let countWinsComputer = 0; //Number of computer wins
+                for (let i = 0; i < 5; i++) { //Plays Five rounds
+                    let computerSelection = computerPlay();
+                    let playerSelection = prompt("Enter your game input");
+                    if (playerSelection == null) {
+                        alert("Chicken! Chicken!");
+                        return;
+                    }
+                    playerSelection = playerSelection.toLowerCase();
+                    if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') { //Checks if user input is the correct one
+                        let roundResults = playRound(playerSelection, computerSelection);
+                        if (roundResults === "playerLoses") {
+                            countWinsComputer++;
+                        } else if (roundResults === "playerWins") {
+                            countWinsPlayer++;
+                        }
+                    } else { //What happens when the user input is invalid
+                        while (!(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors')) {
+                            playerSelection = prompt("Please enter a valid input");
+                            if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
+                                playRound(playerSelection, computerSelection);
+                            }
+                        }
+                    }
+                }
+                if (countWinsComputer > countWinsPlayer) {
+                    console.log(`Computer Wins by ${countWinsComputer} points`);
+                } else if (countWinsComputer < countWinsPlayer) {
+                    console.log(`Player Wins by ${countWinsPlayer} points`);
+                } else {
+                    console.log("It's a tie");
+                }
+            }
+
+            game();
+        </script>
+>>>>>>> 921ee9f6f06cd9553e1f785a4c0d5b7e40f79366
     </body>
 </html>
 
