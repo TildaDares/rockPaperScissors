@@ -4,8 +4,8 @@ computerPlay = () => {
     let randomOption = Math.floor(Math.random() * arrRockOptions.length);
     return arrRockOptions[randomOption];
 }
+let compImg = document.getElementById('comp-game');
 changeComputerImg = (compPlay) => {
-    let compImg = document.getElementById('comp-game');
     if (compPlay == 'rock') {
         compImg.src = 'Images/rock.png';
     }
@@ -36,6 +36,7 @@ for (let i = 0; i < playerSelection.length; i++) {
 function restartGame(e) {
     countWinsPlayer = 0;
     countWinsComputer = 0;
+    compImg.src = 'Images/threehands2.jpeg';
     for (let i = 0; i < playerSelection.length; i++) {
         playerSelection[i].disabled = false;
     }
